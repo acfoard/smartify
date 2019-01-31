@@ -4,4 +4,4 @@ $(document).ready(function() {
   });
 
 // fades out welcome message
-$("#welcomeText").delay(2000).fadeOut(2000);
+// $("#welcomeText").delay(2000).fadeOut(2000);

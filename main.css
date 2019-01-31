@@ -1,15 +1,23 @@
-.container {
-    height: 100vh;
+#conversationWindow {
+    display: flex;
+    height: 78vh;
+    flex-direction: column;
 }
 
 .montesseratText {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* #inputBox {
-    position: absolute;
-    bottom: 0px;
+/* .center {
+    margin: auto;
 } */
+
+/* #inputForm {
+
+} */
+
+
+
 
 /* label color */
 .input-field label {
