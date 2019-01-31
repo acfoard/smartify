@@ -1,6 +1,7 @@
 const sentence = "When I became President, ISIS was out of control in Syria & running rampant. Since then tremendous progress made, especially over last 5 weeks. Caliphate will soon be destroyed, unthinkable two years ago. Negotiating are proceeding well in Afghanistan after 18 years of fighting";
 
-
+const candidates = [];
+const selectedWords = [];
 const getCandidates = function() {
     const data = nlp(sentence);
     //Get adejctives and store as array
@@ -24,7 +25,6 @@ const getCandidates = function() {
     }
 
     //Combine verbs.word & adjectives to give us candidates for change
-    const candidates = [];
     for (let i=0; i<adjectives.length; i++) {
         candidates.push(adjectives[i]);
     }
@@ -32,15 +32,20 @@ const getCandidates = function() {
         candidates.push(verbs[i].word);
     }
     console.log(candidates);
+    return candidates;
 }
 
 const getWordsToChange = function() {
-    const selectedWords = [];
+    getCandidates();
+    let selected = [];
     if (candidates.length < 6) {
         selectedWords = candidates;
-    } else {
-        
+    } else { 
+        const shuffled = candidates.sort(() => 0.5 - Math.random());
+        selected = shuffled.slice(0, 5);
+        selectedWords.push(selected);        
     }
 }
+console.log(selectedWords);
 
-getCandidates();
+getWordsToChange();
