@@ -1,4 +1,4 @@
-const sentence = "When I became President, ISIS was out of control in Syria & running rampant. Since then tremendous progress made, especially over last 5 weeks. Caliphate will soon be destroyed, unthinkable two years ago. Negotiating are proceeding well in Afghanistan after 18 years of fighting";
+const sentence = "I was born during a cold winter";
 
 const candidates = [];
 const selectedWords = [];
@@ -39,7 +39,7 @@ const getWordsToChange = function() {
     getCandidates();
     let selected = [];
     if (candidates.length < 6) {
-        selectedWords = candidates;
+        selectedWords.push(candidates);
     } else { 
         const shuffled = candidates.sort(() => 0.5 - Math.random());
         selected = shuffled.slice(0, 5);
