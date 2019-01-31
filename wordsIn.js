@@ -31,7 +31,6 @@ const getCandidates = function() {
     for (let i=0; i<verbs.length; i++) {
         candidates.push(verbs[i].word);
     }
-    console.log(candidates);
     return candidates;
 }
 
@@ -48,4 +47,3 @@ const getWordsToChange = function() {
 }
 console.log(selectedWords);
 
-getWordsToChange();
