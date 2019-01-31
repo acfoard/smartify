@@ -1,8 +1,39 @@
+.container {
+    height: 100vh;
+}
+
 .montesseratText {
     font-family: 'Montserrat', sans-serif;
 }
 
-#inputBox {
-    width: 50%;
-    margin: auto;
+/* #inputBox {
+    position: absolute;
+    bottom: 0px;
+} */
+
+/* label color */
+.input-field label {
+    color: #90a4ae;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+
+/* input box uppertext focus color */
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #607d8b !important;
+}
+
+/* input box underline focus color */
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #607d8b !important;
+    box-shadow: 0 1px 0 0 #607d8b !important;
+}
+
+/* input box underline invalid color*/
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important;
 }
