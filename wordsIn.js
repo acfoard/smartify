@@ -1,8 +1,7 @@
-const sentence = "I was born during a cold winter";
+const sentence = "The big dog ran fast.";
 
-const candidates = [];
-const selectedWords = [];
 const getCandidates = function() {
+    const candidates = [];
     const data = nlp(sentence);
     //Get adejctives and store as array
     const adjReturn = data.adjectives();
@@ -35,15 +34,13 @@ const getCandidates = function() {
 }
 
 const getWordsToChange = function() {
-    getCandidates();
-    let selected = [];
+    const candidates = getCandidates();
+    let selectedWords = [];
     if (candidates.length < 6) {
-        selectedWords.push(candidates);
+        selectedWords = candidates;
     } else { 
         const shuffled = candidates.sort(() => 0.5 - Math.random());
-        selected = shuffled.slice(0, 5);
-        selectedWords.push(selected);        
+        selectedWords = shuffled.slice(0, 5);
     }
+    return selectedWords;
 }
-console.log(selectedWords);
-
