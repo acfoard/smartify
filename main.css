@@ -1,7 +1,9 @@
+
 #conversationWindow {
     display: flex;
     height: 78vh;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .montesseratText {

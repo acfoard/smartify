@@ -31,14 +31,6 @@
             </ul>
         </div>
     </nav>
-    <!-- <nav>
-        <div class="nav-wrapper blue-grey">
-            <a href="#" class="brand-logo center montesseratText"><b>Smart</b>ify</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href='#'><i class="material-icons">menu</i></a></li>
-            </ul>
-        </div>
-    </nav> -->
     <!-- sidenav -->
    <ul id='slide-out' class='wrapper sidenav'>
         <li><a class='waves-effect' href='#!'>First Link</a></li>
@@ -50,7 +42,7 @@
         <li><a class='waves-effect modal-trigger' href="#modal1">About</a></li>
     </ul>
  
-  <!-- Modal Structure -->
+  <!-- Side Nav Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
         <h4>About Us</h4>
@@ -61,34 +53,15 @@
         </div>
     </div>
 
-    <div class="section no-pad-bot" id="index-banner">
+
+    <!-- <div class="section no-pad-bot" id="index-banner"> -->
         
         <div id='conversationWindow' class="container">
 
-
-
-            <!-- Large title -->
-            <!-- <h1 class="header center blue-grey-text montesseratText" id='welcomeText'>Welcome to Smartify</h1> -->
-            <!-- <h4 class='center'>Welcome to Smartify</h4> -->
-
             <!-- Smartify conversation block -->
-            <ol class="conversation">
-                <li>
-                <div class="message-block col s12">
-                    <div class="message-bubble input-msg">
-                        <p>Talkie talk talk. Talkie talk talk.Talkie talk talk.Talkie talk talk.Talkie talk talk.</p>
-                    </div>
-                </div>
-                <li>
-                <li>
-                    <div class="message-block col s12">
-                        <div class="message-bubble response-msg">
-                            <p>Talkie <span class="newWord"> newVerb </span>talk talk.</p>
-                        </div>
-                    </div>
-                <li>
+            <ol id='conversation' class="conversation">
 
-              </ol>
+            </ol>
 
 
 
@@ -98,11 +71,14 @@
             <!-- input box -->
                 <div >
                         <form id='inputForm' class="container">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="textarea inputString" class="materialize-textarea" data-length="260"></textarea>
+                                <div class="row valign-wrapper">
+                                    <div class="input-field col s10">
+                                        <textarea id="textarea" class="materialize-textarea inputString" data-length="260"></textarea>
                                         <label for="textarea">Input your Tweet to be Smartified!                                        </label>
                                     </div>
+                                    <button class="btn waves-effect waves-light blue-grey" id='submitBtn' type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
                                 </div>
                         </form>
                 </div>
@@ -111,7 +87,7 @@
 
         </div>
 
-    </div>
+    <!-- </div> -->
 
 
 
