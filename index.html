@@ -22,14 +22,28 @@
 <body>
     <!-- top navbar -->
     <!-- top navbar -->
-   <nav>
+    <nav>
         <div class='nav-wrapper button-collapse blue-grey'>
-            <a href='#'><i class='sidenav-trigger material-icons' data-target='slide-out'>menu</i></a>
- 
-            <a href='index.html' class='brand-logo center montesseratText' id='topLogo'><b>Smart</b>ify</a>
-            <ul id='nav-mobile' class='left hide-on-med-and-down'>
+            <ul id="nav-mobile" class='left hide-on-med-and-down'>
+                <li>
+                    <a href='#'>
+                        <i class='sidenav-trigger material-icons' data-target='slide-out'>menu</i>
+                    </a>
+                </li>
             </ul>
+            <a href='index.html' class='brand-logo center montesseratText' id='topLogo'><b>Smart</b>ify</a>
         </div>
+
+        <!-- <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="sass.html">Sass</a></li>
+                  <li><a href="badges.html">Components</a></li>
+                  <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+              </div> -->
+
+
     </nav>
     <!-- <nav>
         <div class="nav-wrapper blue-grey">
@@ -40,7 +54,7 @@
         </div>
     </nav> -->
     <!-- sidenav -->
-   <ul id='slide-out' class='wrapper sidenav'>
+    <ul id='slide-out' class='wrapper sidenav'>
         <li><a class='waves-effect' href='#!'>First Link</a></li>
         <li><a class='waves-effect' href='#!'>Second Link</a></li>
         <li>
@@ -49,20 +63,21 @@
         <li><a class='subheader'>© 2019</a></li>
         <li><a class='waves-effect modal-trigger' href="#modal1">About</a></li>
     </ul>
- 
-  <!-- Modal Structure -->
+
+    <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
-        <h4>About Us</h4>
-        <p>Smartify was created by Neill Webb, Andrew Foard, Tim Cook, and Mark Herrington in February 2019 while attending the Georgia Tech full time web development boot camp.</p>
+            <h4>About Us</h4>
+            <p>Smartify was created by Neill Webb, Andrew Foard, Tim Cook, and Mark Herrington in February 2019 while
+                attending the Georgia Tech full time web development boot camp.</p>
         </div>
         <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-default btn-flat">Ok</a>
+            <a href="#!" class="modal-close waves-effect waves-default btn-flat">Ok</a>
         </div>
     </div>
 
     <div class="section no-pad-bot" id="index-banner">
-        
+
         <div id='conversationWindow' class="container">
 
 
@@ -74,11 +89,11 @@
             <!-- Smartify conversation block -->
             <ol class="conversation">
                 <li>
-                <div class="message-block col s12">
-                    <div class="message-bubble input-msg">
-                        <p>Talkie talk talk. Talkie talk talk.Talkie talk talk.Talkie talk talk.Talkie talk talk.</p>
+                    <div class="message-block col s12">
+                        <div class="message-bubble input-msg">
+                            <p>Talkie talk talk. Talkie talk talk.Talkie talk talk.Talkie talk talk.Talkie talk talk.</p>
+                        </div>
                     </div>
-                </div>
                 <li>
                 <li>
                     <div class="message-block col s12">
@@ -88,7 +103,7 @@
                     </div>
                 <li>
 
-              </ol>
+            </ol>
 
 
 
@@ -96,17 +111,17 @@
 
         <div id='inputBox'>
             <!-- input box -->
-                <div >
-                        <form id='inputForm' class="container">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="textarea inputString" class="materialize-textarea" data-length="260"></textarea>
-                                        <label for="textarea">Input your Tweet to be Smartified!                                        </label>
-                                    </div>
-                                </div>
-                        </form>
-                </div>
-                   
+            <div>
+                <form id='inputForm' class="container">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea" class="inputString materialize-textarea" data-length="260"></textarea>
+                            <label for="textarea">Input your Tweet to be Smartified! </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
 
 
         </div>
