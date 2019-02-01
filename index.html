@@ -21,14 +21,46 @@
 
 <body>
     <!-- top navbar -->
-    <nav>
+    <!-- top navbar -->
+   <nav>
+        <div class='nav-wrapper button-collapse blue-grey'>
+            <i class='sidenav-trigger material-icons' data-target='slide-out'>menu</i>
+ 
+            <a href='#' class='brand-logo center montesseratText'><b>Smart</b>ify</a>
+            <ul id='nav-mobile' class='left hide-on-med-and-down'>
+            </ul>
+        </div>
+    </nav>
+    <!-- <nav>
         <div class="nav-wrapper blue-grey">
             <a href="#" class="brand-logo center montesseratText"><b>Smart</b>ify</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href='#'><i class="material-icons">menu</i></a></li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+    <!-- sidenav -->
+   <ul id='slide-out' class='wrapper sidenav'>
+        <li><a class='waves-effect' href='#!'>First Link</a></li>
+        <li><a class='waves-effect' href='#!'>Second Link</a></li>
+        <li>
+            <div class='divider'></div>
+        </li>
+        <li><a class='subheader'>© 2019</a></li>
+        <li><a class='waves-effect modal-trigger' href="#modal1">About</a></li>
+    </ul>
+ 
+  <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+        <h4>About Us</h4>
+        <p>Smartify was created by Neill Webb, Andrew Foard, Tim Cook, and Mark Herrington in February 2019 while attending the Georgia Tech full time web development boot camp.</p>
+        </div>
+        <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-default btn-flat">Ok</a>
+        </div>
+    </div>
+
     <div class="section no-pad-bot" id="index-banner">
         
         <div id='conversationWindow' class="container">
@@ -40,24 +72,24 @@
             <!-- <h4 class='center'>Welcome to Smartify</h4> -->
 
             <!-- Smartify conversation block -->
-            <div class='col s12' style="clear:both; overflow:auto; padding:20px 0px;">
-                <div style='margin:5px; border-radius:10px; width:400px; float:right; background-color:#607d8b; color:white; font-size:24px; padding:5px 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>ssdflsdkjlskjd lks dflks dfjs lkdjs ldkf lskjd flsk dlskdf lskj flksjd lfks ldkj flskj dlkfjsldkfjslk slkdjf slkdjf lskjd f;kjdf;lakjqoiwejfqlkwnvq . qowif qpwoinf qopw fqon fqponf qqpoiw jfqwif jqpwoif qwlifj ;alij falij faslif aldjfalif alf qpof qo epgigopig</div>
-            </div>
-            <div class='col s12' style="clear:both; overflow:auto; padding:20px 0px;">
-                    <div style='margin:5px; border-radius:10px; width:400px; float:left; background-color:whitesmoke; color:#607d8b; font-size:24px; padding:5px 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>This is a <span style="color:#79caf0"> geniusified </span> message</div>
-            </div>
-            <div class='col s12' style="clear:both; overflow:auto; padding:20px 0px;">
-                    <div style='margin:5px; border-radius:10px;  width:400px; float:right; background-color:#607d8b; color:white; font-size:24px; padding:5px 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>This is your input message.</div>
-            </div>
-            <div class='col s12' style="clear:both; overflow:auto; padding:20px 0px;">
-                        <div style='margin:5px; border-radius:10px; width:400px; float:left; background-color:whitesmoke; color:#607d8b; font-size:24px; padding:5px 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>This is a smartified <span style="color:#79caf0"> annotation </span> </div>
-            </div>
-            <div class='col s12' style="clear:both; overflow:auto; padding:20px 0px;">
-                    <div style='margin:5px; border-radius:10px;  width:400px; float:right; background-color:#607d8b; color:white; font-size:24px; padding:5px 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>This is your input message.</div>
-            </div>
-            <div class='col s12' style="clear:both; overflow:auto; padding:20px 0px;">
-                        <div style='margin:5px; border-radius:10px; width:400px; float:left; background-color:whitesmoke; color:#607d8b; font-size:24px; padding:5px 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'>This is a smartified <span style="color:#79caf0"> annotation </span> </div>
-            </div>
+            <ol class="conversation">
+                <li>
+                <div class="message-block col s12">
+                    <div class="message-bubble input-msg">
+                        <p>Talkie talk talk. Talkie talk talk.Talkie talk talk.Talkie talk talk.Talkie talk talk.</p>
+                    </div>
+                </div>
+                <li>
+                <li>
+                    <div class="message-block col s12">
+                        <div class="message-bubble response-msg">
+                            <p>Talkie <span class="newWord"> newVerb </span>talk talk.</p>
+                        </div>
+                    </div>
+                <li>
+
+              </ol>
+
 
 
         </div>
@@ -68,8 +100,8 @@
                         <form id='inputForm' class="container">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea id="textarea2" class="materialize-textarea" data-length="260"></textarea>
-                                        <label for="textarea2">Input your Tweet to be Smartified!                                        </label>
+                                        <textarea id="textarea inputString" class="materialize-textarea" data-length="260"></textarea>
+                                        <label for="textarea">Input your Tweet to be Smartified!                                        </label>
                                     </div>
                                 </div>
                         </form>
