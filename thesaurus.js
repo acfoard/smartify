@@ -3,44 +3,62 @@ const baseURL = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/
 
 const synonyms = {};
 const wordReplacement = function (keyWord) {
-    $.ajax({
+    return $.ajax({
         url: baseURL + keyWord + key,
         method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        if (!synonyms[keyWord]) {
-            synonyms[keyWord] = {
-                verbs: [],
-                adjectives: [],
-            }
-        }
-        for (let i = 0; i < response.length; i++) {
-            if (response[i].fl === "verb") {
-                const flatSynonyms = mergeArrays(response[i].meta.syns);
-                synonyms[keyWord].verbs = synonyms[keyWord].verbs.concat(flatSynonyms);
-            } else if (response[i].fl === "adjective") {
-                const flatSynonyms = mergeArrays(response[i].meta.syns);
-                synonyms[keyWord].adjectives = synonyms[keyWord].adjectives.concat(flatSynonyms);
-            }
-        }
-        console.log(synonyms)
-    });
+    })
 };
 
-function mergeArrays (arrayOfArrays) {
+function mergeArrays(arrayOfArrays) {
     let flatArray = [];
     for (let i = 0; i < arrayOfArrays.length; i++) {
         flatArray = flatArray.concat(arrayOfArrays[i]);
     }
-    
+
     return flatArray;
 }
 
 const listReplacement = function () {
     const words = getWordsToChange();
+    const promises = [];
     for (let i = 0; i < words.length; i++) {
-        wordReplacement(words[i]);
+        const promise = wordReplacement(words[i].word);
+        promises.push(promise);
     }
+    Promise.all(promises).then(function (wordResponses) {
+        wordResponses.forEach(function (response, i) {
+            console.log(words[i].word);
+            if (!synonyms[words[i].word]) {
+                synonyms[words[i].word] = {
+                    verbs: [],
+                    adjectives: [],
+                }
+            }
+            console.log(synonyms[words[i].word]);
+            for (let j = 0; j < response.length; j++) {
+                if (response[j].fl === "verb") {
+                    const flatSynonyms = mergeArrays(response[j].meta.syns);
+                    synonyms[words[i].word].verbs = synonyms[words[i].word].verbs.concat(flatSynonyms);
+                } else if (response[j].fl === "adjective") {
+                    const flatSynonyms = mergeArrays(response[j].meta.syns);
+                    synonyms[words[i].word].adjectives = synonyms[words[i].word].adjectives.concat(flatSynonyms);
+                }
+            }
+            const newWord = swapWord(words[i], synonyms[words[i].word]);
+            console.log(synonyms)
+        });
+        
+    });
 };
+
+function swapWord (origWord, possibleWords) {
+    let newWord;
+    if (origWord.tense === "verb") {
+        const newWord = randomWord(possibleWords.verbs);
+    } else if () {
+        /// get a random adj
+    }
+    return newWord;
+}
 
 listReplacement();
