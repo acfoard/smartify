@@ -1,4 +1,4 @@
-const sentence = "The big dog ran fast.";
+const sentence = "Running fast, the big dog barked.";
 
 const getCandidates = function() {
     const candidates = [];
@@ -18,7 +18,6 @@ const getCandidates = function() {
 
     //Get verbs and store as object w/ word & tense
     const verbReturn = data.verbs().data();
-    const verbs = [];
     for (let i=0; i<verbReturn.length; i++) {
         let isVerb = true;
         let verb = verbReturn[i].parts.verb;
