@@ -79,3 +79,22 @@
     top: 65px;
     width: 250px;
  }
+
+ @media screen and (max-width: 640px) {
+    .container {
+        width: 90%;
+        max-width: 640px;
+        margin: 0px auto;
+        padding: 0px 0px;
+        clear: both;
+    }
+
+    #conversationWindow {
+        height: 80vh;
+    }
+
+    #textarea2.vert {
+        resize:vertical;
+    }
+    
+}
