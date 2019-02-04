@@ -30,7 +30,7 @@ const runInput = function(e) {
   } else {
       renderInput( inputString );
       renderTypingIndicator(); // while response='';
-      setTimeout( function() {getResponse( inputString )}, 2000);
+      setTimeout( function() {getResponse( inputString )}, 1000);
   };
 };
 
