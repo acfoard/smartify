@@ -30,8 +30,7 @@ const runInput = function(e) {
   } else {
       renderInput( inputString );
       renderTypingIndicator(); // while response='';
-      // listReplacement( inputString );
-      setTimeout( function() {getResponse( inputString )}, 4000);
+      setTimeout( function() {getResponse( inputString )}, 2000);
   };
 };
 
@@ -63,28 +62,11 @@ const renderTypingIndicator = function() {
 
 
 
-const getResponse = function ( string ) {
-  console.log(`getResponse successfully called for ${string}`)
-  renderResponse( string )
-};
+// const getResponse = function ( string ) {
+//   console.log(`getResponse successfully called for ${string}`)
+//   renderResponse( string )
+// };
 
-const renderResponse = function( string ) {
-  $('.typing-indicator-li').remove();
-  const newString = string + ' some fancy new words';
-  const msgHTML = `<li>
-  <div class="message-block col s12 valign-wrapper">
-      <div class="message-bubble response-msg">
-          <p>${newString}</p>
-      </div>
-      <div 
-      style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${newString}" data-size="large"> Tweet This!</a>
-      </div>
-  </div>
-<li>`;
-  $('.conversation').append(msgHTML);
-  scrollToBottom(); // scroll conversation to bottom 
-  console.log(`renderResponse successfully called for ${string}`)
-};
 
 
 // Make the chat show most recent bubbles by default (auto scroll to bottom)
