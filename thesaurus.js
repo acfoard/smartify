@@ -36,8 +36,8 @@ function mergeArrays (arrayOfArrays) {
     return flatArray;
 }
 
-const listReplacement = function () {
-    const words = getWordsToChange();
+const listReplacement = function (sentence) {
+    const words = getWordsToChange(sentence);
     for (let i = 0; i < words.length; i++) {
         wordReplacement(words[i]);
     }

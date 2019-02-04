@@ -29,8 +29,9 @@ const runInput = function(e) {
       M.toast({html: 'Your Tweet is too long!'});
   } else {
       renderInput( inputString );
-      // renderTypingIndicator(); // while response='';
-      getResponse( inputString );
+      renderTypingIndicator(); // while response='';
+      // listReplacement( inputString );
+      setTimeout( function() {getResponse( inputString )}, 4000);
   };
 };
 
@@ -47,13 +48,28 @@ const renderInput = function( string ) {
   scrollToBottom();
 };
 
+const renderTypingIndicator = function() {
+  const typingHTML = `<li class="typing-indicator-li">
+  <div class="message-block col s12 valign-wrapper">
+      <div class="typing-indicator">
+      <img width="80" src="https://thumbs.gfycat.com/FittingIndolentAmericansaddlebred-size_restricted.gif" alt='typing indicator'></img>
+      </div>
+  </div>
+<li>`;
+  $('.conversation').append(typingHTML);
+  scrollToBottom(); // scroll conversation to bottom 
+  // https://cdn.dribbble.com/users/172906/screenshots/1183163/2013-08-04_21_12_53.gif
+}
+
+
+
 const getResponse = function ( string ) {
   console.log(`getResponse successfully called for ${string}`)
   renderResponse( string )
 };
 
 const renderResponse = function( string ) {
-  // create HTML w/ twitter button
+  $('.typing-indicator-li').remove();
   const newString = string + ' some fancy new words';
   const msgHTML = `<li>
   <div class="message-block col s12 valign-wrapper">

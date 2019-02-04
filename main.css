@@ -32,6 +32,14 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.typing-indicator {
+    margin:5px; 
+    border-radius:10px; 
+    width:40px; 
+    padding:0px 15px; 
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
 .input-msg {
     float:right; 
     background-color:#607d8b; 
