@@ -55,17 +55,27 @@
     </nav> -->
     <!-- sidenav -->
     <ul id='slide-out' class='wrapper sidenav'>
-        <li><a class='waves-effect' href='#!'>First Link</a></li>
-        <li><a class='waves-effect' href='#!'>Second Link</a></li>
+        <li><a class='waves-effect modal-trigger' href='#modalHowWorks'>How it Works</a></li>
         <li>
             <div class='divider'></div>
         </li>
         <li><a class='subheader'>© 2019</a></li>
-        <li><a class='waves-effect modal-trigger' href="#modal1">About</a></li>
+        <li><a class='waves-effect modal-trigger' href="#modalAbout">About</a></li>
     </ul>
 
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <!-- Modal Structure (How it Works) -->
+    <div id="modalHowWorks" class="modal">
+        <div class="modal-content">
+            <h4>How Smartify works</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem omnis cum cumque maiores facere vel obcaecati, sed nemo. Ut possimus quam porro nemo voluptas dolores explicabo cum et quos perferendis.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-default btn-flat">Ok</a>
+        </div>
+    </div>
+
+    <!-- Modal Structure (About) -->
+    <div id="modalAbout" class="modal">
         <div class="modal-content">
             <h4>About Us</h4>
             <p>Smartify was created by Neill Webb, Andrew Foard, Tim Cook, and Mark Herrington in February 2019 while
@@ -115,7 +125,7 @@
                 <form id='inputForm' class="container">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea" class="inputString materialize-textarea" data-length="260"></textarea>
+                            <textarea id="textarea" data-error="wrong" class="inputString materialize-textarea" data-length="260"></textarea>
                             <label for="textarea">Input your Tweet to be Smartified! </label>
                         </div>
                     </div>
