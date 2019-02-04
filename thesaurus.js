@@ -14,7 +14,6 @@ function mergeArrays(arrayOfArrays) {
     for (let i = 0; i < arrayOfArrays.length; i++) {
         flatArray = flatArray.concat(arrayOfArrays[i]);
     }
-
     return flatArray;
 }
 
@@ -43,64 +42,66 @@ const listReplacement = function () {
                     synonyms[words[i].word].adjectives = synonyms[words[i].word].adjectives.concat(flatSynonyms);
                 }
             }
-            // const newWord = swapWord(words[i], synonyms[words[i].word]);
             console.log(synonyms)
         });
-        //Get random words to replace original words
         getRandWord(words, synonyms);
-        //need function to change the getRandWord verbs back to their proper tense
-
-
-        //need function to replace old words with new words
-
-
-        //need function to render to the screen
+        newSentence = sentenceString.join(" ");
+        console.log (newSentence);
+        renderResonse(newSentence);
     });
 };
-
 
 const getRandWord = function(origArr, returnObj) {
     for (let i=0; i<origArr.length; i++) {
         let wordType = '';
         const word = origArr[i].word;
+        let newWord = '';
         if (origArr[i].isVerb === true) {
+            const verbTense = origArr[i].tense
             wordType = 'verbs';
-            const randIndex = [Math.floor(Math.random()*returnObj[`${word}`][`${wordType}`].length)];
-            let newWord = returnObj[`${word}`][`${wordType}`][randIndex];
-            console.log (randIndex);
-            console.log(newWord);
+            do {
+                const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
+                let baseWord = returnObj[word][wordType][randIndex];
+                newWord = changeTense(word, verbTense, baseWord);
+            } while (newWord === '');
         } else {
             wordType = 'adjectives';
-            const randIndex = [Math.floor(Math.random()*returnObj[`${word}`][`${wordType}`].length)];
-            const newWord = returnObj[`${word}`][`${wordType}`][randIndex];
-            console.log (randIndex);
-            console.log(newWord);
+            const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
+            newWord = returnObj[word][wordType][randIndex];
         };
-        
+        console.log(word, newWord);
+        wordReplace(word, newWord);
     }
 };
 
-const changeTense = function(origArray, verb) {
+const changeTense = function(origWord, verbTense, verb) {
     const data = nlp(verb);
-    const tenseChange = origArray[i].tense;
-    if (tenseChange === "Past") {
-        const changedVerb = data.verbs().toPastTense();
-    } else if (tenseChange === "Present") {
-        const changedVerb = data.verbs().toPresentTense();
+    let changedVerb = '';
+    console.log(data.debug(), data.verbs());
+    if (origWord.endsWith("ing")) {
+        console.log("it sure do", data.verbs());
+        changedVerb = data.verbs().toGerund();
+    }
+    else if (verbTense === "Past") {
+        console.log("past tense");
+        changedVerb = data.verbs().toPastTense();
     } else {
-        const changedVerb = data.verbs().toFutureTense();
-    };
-    console.log(changedVerb);
-     
+        console.log("present");
+        changedVerb = data.verbs().toPresentTense();
+    } 
+    return changedVerb.out("normal");
 };
-// function swapWord (origWord, possibleWords) {
-//     let newWord;
-//     if (origWord.tense === "verb") {
-//         const newWord = randomWord(possibleWords.verbs);
-//     } else if () {
-//         /// get a random adj
-//     }
-//     return newWord;
-// }
+
+const wordReplace = function (oldWord, newWord) {
+    console.log(sentenceString);
+    var index = sentenceString.findIndex(function (value) {
+        return value.toLowerCase() === oldWord.toLowerCase();
+    });
+    console.log(index, oldWord)
+    if (index !== -1) {
+        sentenceString[index] = newWord;
+    }
+    console.log(sentenceString);
+}
 
 listReplacement();

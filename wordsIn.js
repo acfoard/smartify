@@ -1,4 +1,7 @@
-const sentence = "Running fast, the big dog barked.";
+let sentence = "Running is fun";
+let newSentence = '';
+
+const sentenceString = sentence.split(" ");
 
 const getCandidates = function() {
     const candidates = [];
