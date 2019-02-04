@@ -8,8 +8,6 @@ const getResponse = function(inputString) {
     listReplacement();
 }
 
- 
-
 const getCandidates = function() {
     const candidates = [];
     const data = nlp(sentence);
