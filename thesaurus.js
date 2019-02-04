@@ -17,6 +17,24 @@ function mergeArrays(arrayOfArrays) {
     return flatArray;
 }
 
+const renderResponse = function( string ) {
+    $('.typing-indicator-li').remove();
+    const msgHTML = `<li>
+    <div class="message-block col s12 valign-wrapper">
+        <div class="message-bubble response-msg">
+            <p>${string}</p>
+        </div>
+        <div 
+        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${string}" data-size="large"> Tweet This!</a>
+        </div>
+    </div>
+  <li>`;
+    $('.conversation').append(msgHTML);
+    scrollToBottom(); // scroll conversation to bottom 
+    console.log(`renderResponse successfully called for ${string}`)
+  };
+
+
 const listReplacement = function () {
     const words = getWordsToChange();
     console.log(words);
@@ -46,8 +64,8 @@ const listReplacement = function () {
         });
         getRandWord(words, synonyms);
         newSentence = sentenceString.join(" ");
-        console.log (newSentence);
-        renderResonse(newSentence);
+        console.log ('new sentence = ', newSentence );
+        renderResponse( newSentence );
     });
 };
 
@@ -104,4 +122,3 @@ const wordReplace = function (oldWord, newWord) {
     console.log(sentenceString);
 }
 
-listReplacement();

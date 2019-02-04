@@ -5,14 +5,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!-- Materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- our CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- jQuery CDN -->
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <title>Smartify</title>
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- top navbar -->
+    <!-- top navbar -->
+   <nav>
+        <div class='nav-wrapper button-collapse blue-grey'>
+            <i class='sidenav-trigger material-icons' data-target='slide-out'>menu</i>
+ 
+            <a href='#' class='brand-logo center montesseratText'><b>Smart</b>ify</a>
+            <ul id='nav-mobile' class='left hide-on-med-and-down'>
+            </ul>
+        </div>
+    </nav>
+    <!-- sidenav -->
+   <ul id='slide-out' class='wrapper sidenav'>
+        <li><a class='waves-effect' href='#!'>First Link</a></li>
+        <li><a class='waves-effect' href='#!'>Second Link</a></li>
+        <li>
+            <div class='divider'></div>
+        </li>
+        <li><a class='subheader'>© 2019</a></li>
+        <li><a class='waves-effect modal-trigger' href="#modal1">About</a></li>
+    </ul>
+ 
+  <!-- Side Nav Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+        <h4>About Us</h4>
+        <p>Smartify was created by Neill Webb, Andrew Foard, Tim Cook, and Mark Herrington in February 2019 while attending the Georgia Tech full time web development boot camp.</p>
+        </div>
+        <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-default btn-flat">Ok</a>
+        </div>
+    </div>
+
+
+    <!-- <div class="section no-pad-bot" id="index-banner"> -->
+        
+        <div id='conversationWindow' class="container">
+
+            <!-- Smartify conversation block -->
+            <ol id='conversation' class="conversation">
+
+            </ol>
+
+
+
+        </div>
+
+        <div id='inputBox'>
+            <!-- input box -->
+                <div >
+                        <form id='inputForm' class="container">
+                                <div class="row valign-wrapper">
+                                    <div class="input-field col s10">
+                                        <textarea maxlength="260" id="textarea2" class="inputString materialize-textarea" data-length="260"></textarea>
+                                        <label for="textarea2">Input a Tweet to be Smartified</label>
+                                    </div>
+                                    <button class="btn waves-effect waves-light blue-grey" id='submitBtn' type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                        </form>
+                </div>
+                   
+
+
+        </div>
+
+    <!-- </div> -->
+
+
+
+
+    <!-- Materialize Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- our JS -->
     <script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
     <script src="wordsIn.js"></script>
     <script src="thesaurus.js"></script>
+    <script src='app.js'></script>
 </body>
 
 </html>

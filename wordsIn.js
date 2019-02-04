@@ -1,7 +1,14 @@
-let sentence = "Running is fun";
+let sentence;
 let newSentence = '';
+let sentenceString;
 
-const sentenceString = sentence.split(" ");
+const getResponse = function(inputString) {
+    sentence= inputString;
+    sentenceString = sentence.split(" ");
+    listReplacement();
+}
+
+ 
 
 const getCandidates = function() {
     const candidates = [];
