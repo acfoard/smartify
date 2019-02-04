@@ -35,7 +35,7 @@
 .message-bubble {
     margin:5px; 
     border-radius:10px; 
-    width:400px; 
+    width:70%; 
     font-size:20px; 
     padding:0px 15px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -99,4 +99,30 @@
     width: 250px;
  }
 
+ /*  Reponsive tweaks  */
 
+ @media screen and (max-width: 640px) {
+    .message-bubble {
+        font-size: 14;
+    }
+    #conversation {
+        padding-inline-start: 0px;
+    }
+    
+    /* .container {
+        width: 90%;
+        max-width: 640px;
+        margin: 0px auto;
+        padding: 0px 0px;
+        clear: both;
+    }
+
+    #conversationWindow {
+        height: 80vh;
+    }
+
+    #textarea2.vert {
+        resize:vertical;
+    } */
+    
+}
