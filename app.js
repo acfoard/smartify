@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 // onSubmit => runInput(string) take in and save input message from the input form
 const runInput = function(e) {
-  e.preventDefault;
+  e.preventDefault();
   const inputString = $('.inputString').val().trim(); // save val() and trim();
   $('.inputString').val(''); // sets input back to empty
 // validate string
@@ -58,10 +58,14 @@ const getResponse = function ( string ) {
 
 const renderResponse = function( string ) {
   // create HTML w/ twitter button
+  const newString = string + ' some fancy new words';
   const msgHTML = `<li>
-  <div class="message-block col s12">
+  <div class="message-block col s12 valign-wrapper">
       <div class="message-bubble response-msg">
-          <p>${string + 'some new words'}</p>
+          <p>${newString}</p>
+      </div>
+      <div 
+      style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${newString}" data-size="large"> Tweet This!</a>
       </div>
   </div>
 <li>`;
@@ -69,7 +73,6 @@ const renderResponse = function( string ) {
   scrollToBottom(); // scroll conversation to bottom 
   console.log(`renderResponse successfully called for ${string}`)
 };
-
 
 
 // Make the chat show most recent bubbles by default (auto scroll to bottom)
@@ -87,10 +90,10 @@ const scrollToBottom = function() {
 
 
 // Add event listener to form to run runInput() on 'click' or 'enter'
-$('#inputForm').on('submit', runInput);
+$('#submitBtn').on('click', runInput);
 
 // Get the input field
-var input = document.getElementById("myInput");
+// var input = document.getElementById("myInput");
 
 // Execute a function when the user releases a key on the keyboard
 $('.input-field').on("keyup", function(event) {
