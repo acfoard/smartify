@@ -23,20 +23,16 @@ const runInput = function(e) {
   const inputString = $('.inputString').val().trim(); // save val() and trim();
   $('.inputString').val(''); // sets input back to empty
 // validate string
-  switch ( inputString ) {
-    case '': 
-      alert('Please enter text before hitting submit');
-      break;
-    case inputString.length > 260: 
-      alert('Please limit your input text to 260 characters');
-      break;
-    default:
-      console.log( inputString );
+  if ( inputString.length ==0 ) {
+      M.toast({html: 'Please enter a Tweet!'});
+  } else if ( inputString.length > 260 ) {
+      M.toast({html: 'Your Tweet is too long!'});
+  } else {
       renderInput( inputString );
       // renderTypingIndicator(); // while response='';
       getResponse( inputString );
   };
-}
+};
 
 
 const renderInput = function( string ) {
@@ -92,8 +88,6 @@ const scrollToBottom = function() {
 // Add event listener to form to run runInput() on 'click' or 'enter'
 $('#submitBtn').on('click', runInput);
 
-// Get the input field
-// var input = document.getElementById("myInput");
 
 // Execute a function when the user releases a key on the keyboard
 $('.input-field').on("keyup", function(event) {
@@ -105,3 +99,5 @@ $('.input-field').on("keyup", function(event) {
     $("#submitBtn").click();
   }
 });
+
+
