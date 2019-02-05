@@ -97,17 +97,18 @@ const changeTense = function(origWord, verbTense, verb) {
     let changedVerb = '';
     console.log(data.debug(), data.verbs());
     if (origWord.endsWith("ing")) {
-        console.log("it sure do", data.verbs());
-        changedVerb = data.verbs().toGerund();
+        tempVerb = data.verbs().toGerund();
+        changedVerb = tempVerb.out("normal");
+        changedVerb = changedVerb.replace('is ','');
     }
     else if (verbTense === "Past") {
-        console.log("past tense");
-        changedVerb = data.verbs().toPastTense();
+        tempVerb = data.verbs().toPastTense();
+        changedVerb = tempVerb.out("normal");
     } else {
-        console.log("present");
-        changedVerb = data.verbs().toPresentTense();
+        tempVerb = data.verbs();
+        changedVerb = tempVerb.out("normal");
     } 
-    return changedVerb.out("normal");
+    return changedVerb;
 };
 
 const wordReplace = function (oldWord, newWord) {
