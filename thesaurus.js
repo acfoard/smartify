@@ -37,7 +37,6 @@ const renderResponse = function( string ) {
 
 const listReplacement = function () {
     const words = getWordsToChange();
-    console.log(words);
     const promises = [];
     for (let i = 0; i < words.length; i++) {
         const promise = wordReplacement(words[i].word);
@@ -60,11 +59,9 @@ const listReplacement = function () {
                     synonyms[words[i].word].adjectives = synonyms[words[i].word].adjectives.concat(flatSynonyms);
                 }
             }
-            console.log(synonyms)
         });
         getRandWord(words, synonyms);
         newSentence = sentenceString.join(" ");
-        console.log ('new sentence = ', newSentence );
         renderResponse( newSentence );
     });
 };
@@ -88,7 +85,6 @@ const getRandWord = function(origArr, returnObj) {
             const randIndex = Math.floor(Math.random()*adjSynonyms.length);
             newWord = adjSynonyms[randIndex];
         };
-        console.log(word, newWord);
         wordReplace(word, newWord);
     }
 };
@@ -96,7 +92,7 @@ const getRandWord = function(origArr, returnObj) {
 const changeTense = function(origWord, verbTense, verb) {
     const data = nlp(verb);
     let changedVerb = '';
-    console.log(data.debug(), data.verbs());
+    let tempVerb = '';
     if (origWord.endsWith("ing")) {
         tempVerb = data.verbs().toGerund();
         changedVerb = tempVerb.out("normal");
@@ -106,6 +102,7 @@ const changeTense = function(origWord, verbTense, verb) {
         tempVerb = data.verbs().toPastTense();
         changedVerb = tempVerb.out("normal");
     } else {
+<<<<<<< HEAD
         if (origWord.endsWith("s")) {
             tempVerb = data.verbs().toPresentTense();
             changedVerb = tempVerb.out("normal");
@@ -113,6 +110,10 @@ const changeTense = function(origWord, verbTense, verb) {
             tempVerb = data.verbs();
             changedVerb = tempVerb.out("normal");
         }
+=======
+        tempVerb = data.verbs();
+        changedVerb = tempVerb.out("normal");
+>>>>>>> 874a272e8feff26d206d0fca1fef9d03c722a441
     } 
     return changedVerb;
 };
@@ -122,10 +123,7 @@ const wordReplace = function (oldWord, newWord) {
     var index = sentenceString.findIndex(function (value) {
         return value.toLowerCase() === oldWord.toLowerCase();
     });
-    console.log(index, oldWord)
     if (index !== -1) {
         sentenceString[index] = newWord;
     }
-    console.log(sentenceString);
 }
-

@@ -1,21 +1,20 @@
 // input box character counter
-$(document).ready(function() {
-    $('input#input_text, textarea#textarea2').characterCounter();
-  });
+$(document).ready(function () {
+  $('input#input_text, textarea#textarea2').characterCounter();
+});
 
 // sidenav
-$(document).ready(function(){
- $('.sidenav').sidenav();
+$(document).ready(function () {
+  $('.sidenav').sidenav();
 });
 
 // modal
-$(document).ready(function(){
- $('.modal').modal();
+$(document).ready(function () {
+  $('.modal').modal();
 });
 
 // fades out welcome message
 // $("#welcomeText").delay(2000).fadeOut(2000);
-
 
 // onSubmit => runInput(string) take in and save input message from the input form
 const runInput = function(e) {
@@ -30,7 +29,7 @@ const runInput = function(e) {
   } else {
       renderInput( inputString );
       renderTypingIndicator(); // while response='';
-      setTimeout( function() {getResponse( inputString )}, 2000);
+      setTimeout( function() {getResponse( inputString )}, 1000);
   };
 };
 
