@@ -15,6 +15,23 @@ nav {
     position: fixed;
 }
 
+#topLogo {
+    color:#fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+
+#topLogo:hover {
+    color: #fff;
+    text-shadow:0px 0px 30px #fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
 #conversationWindow {
     display: flex;
     height: 78vh;
