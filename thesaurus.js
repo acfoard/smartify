@@ -68,21 +68,22 @@ const listReplacement = function () {
 
 const getRandWord = function(origArr, returnObj) {
     for (let i=0; i<origArr.length; i++) {
-        let wordType = '';
         const word = origArr[i].word;
-        let newWord = '';
+        let newWord = word;
         if (origArr[i].isVerb === true) {
             const verbTense = origArr[i].tense
-            wordType = 'verbs';
-            do {
-                const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
-                let baseWord = returnObj[word][wordType][randIndex];
+            const verbSynonyms = returnObj[word].verbs;
+            let count = 0;
+            while (verbSynonyms.length > 0 && newWord === word || newWord === '' && count < verbSynonyms.length) {
+                count++;
+                const randIndex = Math.floor(Math.random()*verbSynonyms.length);
+                const baseWord = verbSynonyms[randIndex];
                 newWord = changeTense(word, verbTense, baseWord);
-            } while (newWord === '');
+            }
         } else {
-            wordType = 'adjectives';
-            const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
-            newWord = returnObj[word][wordType][randIndex];
+            const adjSynonyms = returnObj[word].adjectives;
+            const randIndex = Math.floor(Math.random()*adjSynonyms.length);
+            newWord = adjSynonyms[randIndex];
         };
         wordReplace(word, newWord);
     }
@@ -101,8 +102,18 @@ const changeTense = function(origWord, verbTense, verb) {
         tempVerb = data.verbs().toPastTense();
         changedVerb = tempVerb.out("normal");
     } else {
+<<<<<<< HEAD
+        if (origWord.endsWith("s")) {
+            tempVerb = data.verbs().toPresentTense();
+            changedVerb = tempVerb.out("normal");
+        } else {
+            tempVerb = data.verbs();
+            changedVerb = tempVerb.out("normal");
+        }
+=======
         tempVerb = data.verbs();
         changedVerb = tempVerb.out("normal");
+>>>>>>> 874a272e8feff26d206d0fca1fef9d03c722a441
     } 
     return changedVerb;
 };
