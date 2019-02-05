@@ -102,7 +102,6 @@ const changeTense = function(origWord, verbTense, verb) {
         tempVerb = data.verbs().toPastTense();
         changedVerb = tempVerb.out("normal");
     } else {
-<<<<<<< HEAD
         if (origWord.endsWith("s")) {
             tempVerb = data.verbs().toPresentTense();
             changedVerb = tempVerb.out("normal");
@@ -110,10 +109,6 @@ const changeTense = function(origWord, verbTense, verb) {
             tempVerb = data.verbs();
             changedVerb = tempVerb.out("normal");
         }
-=======
-        tempVerb = data.verbs();
-        changedVerb = tempVerb.out("normal");
->>>>>>> 874a272e8feff26d206d0fca1fef9d03c722a441
     } 
     return changedVerb;
 };
