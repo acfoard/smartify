@@ -32,6 +32,34 @@ nav {
     transition: all 0.2s ease-in;
 }
 
+#topNav {
+    position: static;
+}
+
+#sidenavTriggerLi {
+    height: 56px;
+    width: 64px;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+}
+
+#sidenavTriggerLi:hover {
+    color: #fff;
+    text-shadow:0px 0px 30px #fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.sidenav-trigger {
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    height: 56px;
+}
+
 #conversationWindow {
     display: flex;
     height: 78vh;
