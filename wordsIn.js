@@ -2,6 +2,12 @@ let sentence;
 let newSentence = '';
 let sentenceString;
 
+let replaceList0;
+let replaceList1;
+let replaceList2;
+let replaceList3;
+let replaceList4;
+
 const getResponse = function(inputString) {
     sentence= inputString;
     sentenceString = sentence.split(" ");
