@@ -77,7 +77,7 @@ const getRandWord = function(origArr, returnObj) {
             const verbTense = origArr[i].tense
             const verbSynonyms = returnObj[word].verbs;
             let count = 0;
-            while (verbSynonyms.length > 0 && newWord === word && count < verbSynonyms.length) {
+            while (verbSynonyms.length > 0 && newWord === word || newWord === '' && count < verbSynonyms.length) {
                 count++;
                 const randIndex = Math.floor(Math.random()*verbSynonyms.length);
                 const baseWord = verbSynonyms[randIndex];
