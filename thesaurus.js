@@ -71,21 +71,22 @@ const listReplacement = function () {
 
 const getRandWord = function(origArr, returnObj) {
     for (let i=0; i<origArr.length; i++) {
-        let wordType = '';
         const word = origArr[i].word;
-        let newWord = '';
+        let newWord = word;
         if (origArr[i].isVerb === true) {
             const verbTense = origArr[i].tense
-            wordType = 'verbs';
-            do {
-                const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
-                let baseWord = returnObj[word][wordType][randIndex];
+            const verbSynonyms = returnObj[word].verbs;
+            let count = 0;
+            while (verbSynonyms.length > 0 && newWord === word && count < verbSynonyms.length) {
+                count++;
+                const randIndex = Math.floor(Math.random()*verbSynonyms.length);
+                const baseWord = verbSynonyms[randIndex];
                 newWord = changeTense(word, verbTense, baseWord);
-            } while (newWord === '');
+            }
         } else {
-            wordType = 'adjectives';
-            const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
-            newWord = returnObj[word][wordType][randIndex];
+            const adjSynonyms = returnObj[word].adjectives;
+            const randIndex = Math.floor(Math.random()*adjSynonyms.length);
+            newWord = adjSynonyms[randIndex];
         };
         console.log(word, newWord);
         wordReplace(word, newWord);
