@@ -1,10 +1,21 @@
-const key = `?key=6abb23cc-f20a-4a93-b5fe-cafee8b78d5b`;
+const key = [`?key=6abb23cc-f20a-4a93-b5fe-cafee8b78d5b` , `?key=9b4c0aa8-af73-492c-89ef-9edb3067b787`];
 const baseURL = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/';
+let keyIndex = '1'
 
 const synonyms = {};
+
+const changeKeyIndex = function() {
+    if (keyIndex === '0') {
+        keyIndex = '1'
+    } else {
+        keyIndex = '0'
+    };
+};
+
 const wordReplacement = function (keyWord) {
+    changeKeyIndex();
     return $.ajax({
-        url: baseURL + keyWord + key,
+        url: baseURL + keyWord + key[keyIndex],
         method: "GET"
     })
 };
