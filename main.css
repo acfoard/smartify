@@ -15,6 +15,51 @@ nav {
     position: fixed;
 }
 
+#topLogo {
+    color:#fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+
+#topLogo:hover {
+    color: #fff;
+    text-shadow:0px 0px 30px #fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+#topNav {
+    position: static;
+}
+
+#sidenavTriggerLi {
+    height: 56px;
+    width: 60px;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+}
+
+#sidenavTriggerLi:hover {
+    color: #fff;
+    text-shadow:0px 0px 30px #fff;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.sidenav-trigger {
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    height: 56px;
+}
+
 #conversationWindow {
     display: flex;
     height: 78vh;
@@ -43,7 +88,7 @@ nav {
 .message-bubble {
     margin:5px; 
     border-radius:10px; 
-    width:70%; 
+    max-width:70%; 
     font-size:20px; 
     padding:0px 15px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -128,5 +173,8 @@ nav {
     }
     .input-field label {
        font-size: 10px;
+    }
+    .sidenav-trigger {
+        top: 0px;
     }
 }
