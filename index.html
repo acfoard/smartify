@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="smartifyFavicon.png">
+    <link rel="icon" type="image/png" href="icons/smartifyFavicon.png">
     <!-- Materialize Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Google Materialize Icons -->
@@ -25,13 +25,21 @@
     <!-- top navbar -->
     <nav>
         <div class='nav-wrapper button-collapse blue-grey' id='topNav'>
-            <ul id="nav-mobile" class='left'>
-                <li id='sidenavTriggerLi'>
+            <!-- sidenav trigger -->
+            <ul id='sidenavTriggerLi' class='left'>
+                <li id='navBarLink'>
                     <a href='#'>
                         <i class='sidenav-trigger material-icons' data-target='slide-out'>menu</i>
                     </a>
                 </li>
             </ul>
+            <!-- share logo links -->
+            <ul class='right'>
+                <li><a class="browser-default shareLink" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//acfoard.github.io/smartify/" target="_blank"><img src='icons/facebookLogo.svg' class='center-align' height="42" width="42"></a></li>
+                <li><a class="browser-default shareLink" href="https://twitter.com/home?status=Check%20out%20Smartify!%20%0A%20https%3A//acfoard.github.io/smartify/" target="_blank"><img src='icons/twitterLogo.svg' class='center-align' height="42" width="42"></a></li>
+                <li><a class="browser-default shareLink" href='https://reddit.com/submit/?url=https%3A%2F%2Facfoard.github.io%2Fsmartify%2F&amp;resubmit=true&amp;title=Smartify%20makes%20your%20Tweets%20cleverer!' target="_blank"><img src='icons/redditLogo.svg' class='center-align' height="42" width="42"></a></li>
+            </ul>
+            <!-- center Smartify logo -->
             <a href='index.html' class='brand-logo center montesseratText' id='topLogo'><b>Smart</b>ify</a>
         </div>
 
@@ -50,7 +58,9 @@
     <div id="modalHowWorks" class="modal">
         <div class="modal-content">
             <h4>How Smartify works</h4>
-            <p>Simply type in a sentence that you would like to Smartify and click "Submit" or press "Enter". Smartify will take in your sentence and make it smart. If you like the response, you can easily Tweet it by clicking the "Tweet This" button. Enjoy!</p>
+            <p>Simply type in a sentence that you would like to Smartify and click "Submit" or press "Enter". Smartify
+                will take in your sentence and make it smart. If you like the response, you can easily Tweet it by
+                clicking the "Tweet This" button. Enjoy!</p>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-default btn-flat">Ok</a>
@@ -61,7 +71,9 @@
     <div id="modalAbout" class="modal">
         <div class="modal-content">
             <h4>About Us</h4>
-            <p>Smartify was created by Neill Webb, Andrew Foard, Tim Cook, and Mark Herrington in February 2019 while
+            <p>Smartify was created by Neill Webb (<a href='https://github.com/neillwebb'>Github</a>), Andrew Foard (<a
+                    href='https://github.com/acfoard'>Github</a>), Tim Cook (<a href='https://github.com/timothywadecook'>Github</a>),
+                and Mark Herrington (<a href='https://github.com/markherrington5'>Github</a>) in February 2019 while
                 attending the Georgia Tech full time web development boot camp.</p>
         </div>
         <div class="modal-footer">
@@ -82,37 +94,37 @@
 
 
     <!-- <div class="section no-pad-bot" id="index-banner">  -->
-        
-        <div id='conversationWindow' class="container">
 
-            <!-- Smartify conversation block -->
-            <ol id='conversation' class="conversation">
+    <div id='conversationWindow' class="container">
 
-            </ol>
+        <!-- Smartify conversation block -->
+        <ol id='conversation' class="conversation">
+
+        </ol>
 
 
 
-        </div>
+    </div>
 
-        <div id='inputBox'>
-            <!-- input box -->
-                <div >
-                        <form id='inputForm' class="container">
-                                <div class="row valign-wrapper">
-                                    <div class="input-field col s10">
-                                        <textarea maxlength="260" id="textarea2" class="inputString materialize-textarea" data-length="260"></textarea>
-                                        <label for="textarea2">Input a Tweet to be Smartified</label>
-                                    </div>
-                                    <button class="btn waves-effect waves-light blue-grey" id='submitBtn' type="submit" name="action">Submit
-                                        <i class="material-icons right">send</i>
-                                    </button>
-                                </div>
-                        </form>
+    <div id='inputBox'>
+        <!-- input box -->
+        <div>
+            <form id='inputForm' class="container">
+                <div class="row valign-wrapper">
+                    <div class="input-field col s10">
+                        <textarea maxlength="260" id="textarea2" class="inputString materialize-textarea" data-length="260"></textarea>
+                        <label for="textarea2">Input a Tweet to be Smartified</label>
+                    </div>
+                    <button class="btn waves-effect waves-light blue-grey" id='submitBtn' type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
-                   
-
-
+            </form>
         </div>
+
+
+
+    </div>
 
     <!-- </div> -->
 

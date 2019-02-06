@@ -26,7 +26,7 @@ const renderResponse = function( string ) {
             <p>${string}</p>
         </div>
         <div 
-        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${cleanText}" data-size="large"> Tweet This!</a>
+        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="icons/twitterLogo.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${cleanText}" data-size="large"> Tweet This!</a>
         </div>
     </div>
   <li>`;
