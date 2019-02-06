@@ -18,6 +18,7 @@ function mergeArrays(arrayOfArrays) {
 }
 
 const renderResponse = function( string ) {
+    cleanText = string.replace(/<\/?[^>]+(>|$)/g, "");
     $('.typing-indicator-li').remove();
     const msgHTML = `<li>
     <div class="message-block col s12 valign-wrapper">
@@ -25,7 +26,7 @@ const renderResponse = function( string ) {
             <p>${string}</p>
         </div>
         <div 
-        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${string}" data-size="large"> Tweet This!</a>
+        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${cleanText}" data-size="large"> Tweet This!</a>
         </div>
     </div>
   <li>`;
@@ -120,7 +121,7 @@ const changeTense = function(origWord, verbTense, verb) {
 };
 
 const wordReplace = function (oldWord, newWord, index) {
-    newWord = newWord;
+    newWord = `<span id = ${index} class='replacedWord' data-old-word=${oldWord}>${newWord}</span>`;
     var index = sentenceString.findIndex(function (value) {
         return value.toLowerCase() === oldWord.toLowerCase();
     });

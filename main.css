@@ -178,3 +178,7 @@ nav {
         top: 0px;
     }
 }
+
+.replacedWord {
+    font-weight: bolder;
+}
