@@ -9,12 +9,13 @@
   
  <h3> What technologies does Smartify use? 
   <ul>
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>F</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>JSON</li>
+    <li>Compromise(Natural Language Processor api)</li>
+    <li>Merriam Webster Thesaurus(Thesaurus api)</li>
+    <li>Google Materialize</li>
   </ul>
  </h3>
  
