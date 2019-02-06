@@ -97,4 +97,6 @@ $('.input-field').on("keyup", function(event) {
   }
 });
 
-
+$('.conversation').on('click', '.replacedWord', function(){
+  console.log("you clicked");
+});
