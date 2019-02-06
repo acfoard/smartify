@@ -187,7 +187,10 @@ nav {
     }
 }
 
-
 nav ul a:hover {
     background-color: rgba(0,0,0,0.0) !important;
+}
+
+.replacedWord {
+    font-weight: bolder;
 }
