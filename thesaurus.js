@@ -120,7 +120,7 @@ const changeTense = function(origWord, verbTense, verb) {
 };
 
 const wordReplace = function (oldWord, newWord, index) {
-    newWord = `<span class="replacedWord" id=${index}>${newWord}</span>`
+    newWord = `<span class="replacedWord" id=${index} data-old-word="${oldWord}">${newWord}</span>`;
     var index = sentenceString.findIndex(function (value) {
         return value.toLowerCase() === oldWord.toLowerCase();
     });
