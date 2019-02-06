@@ -42,6 +42,7 @@ const listReplacement = function () {
         const promise = wordReplacement(words[i].word);
         promises.push(promise);
     }
+    console.log("promises = ", promises);
     Promise.all(promises).then(function (wordResponses) {
         wordResponses.forEach(function (response, i) {
             if (!synonyms[words[i].word]) {
@@ -50,6 +51,7 @@ const listReplacement = function () {
                     adjectives: [],
                 }
             }
+            console.log('response = ', response);
             for (let j = 0; j < response.length; j++) {
                 if (response[j].fl === "verb") {
                     const flatSynonyms = mergeArrays(response[j].meta.syns);
@@ -71,6 +73,7 @@ const getRandWord = function(origArr, returnObj) {
         let wordType = '';
         const word = origArr[i].word;
         let newWord = '';
+        console.log(word);
         if (origArr[i].isVerb === true) {
             const verbTense = origArr[i].tense
             wordType = 'verbs';
