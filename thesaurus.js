@@ -60,6 +60,7 @@ const listReplacement = function () {
                 }
             }
         });
+        console.log(synonyms);
         getRandWord(words, synonyms);
         newSentence = sentenceString.join(" ");
         renderResponse( newSentence );
@@ -82,10 +83,15 @@ const getRandWord = function(origArr, returnObj) {
             }
         } else {
             const adjSynonyms = returnObj[word].adjectives;
-            const randIndex = Math.floor(Math.random()*adjSynonyms.length);
-            newWord = adjSynonyms[randIndex];
+            let count = 0;
+            while (adjSynonyms.length > 0 && newWord === word && count < adjSynonyms.length) {
+                count++;
+                const randIndex = Math.floor(Math.random()*adjSynonyms.length);
+                newWord = adjSynonyms[randIndex];
+            }
+
         };
-        wordReplace(word, newWord);
+        wordReplace(word, newWord, i);
     }
 };
 
@@ -113,8 +119,8 @@ const changeTense = function(origWord, verbTense, verb) {
     return changedVerb;
 };
 
-const wordReplace = function (oldWord, newWord) {
-    console.log(sentenceString);
+const wordReplace = function (oldWord, newWord, index) {
+    newWord = newWord;
     var index = sentenceString.findIndex(function (value) {
         return value.toLowerCase() === oldWord.toLowerCase();
     });
