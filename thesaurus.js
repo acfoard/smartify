@@ -1,10 +1,21 @@
-const key = `?key=6abb23cc-f20a-4a93-b5fe-cafee8b78d5b`;
+const key = [`?key=6abb23cc-f20a-4a93-b5fe-cafee8b78d5b` , `?key=9b4c0aa8-af73-492c-89ef-9edb3067b787`];
 const baseURL = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/';
+let keyIndex = '1'
 
 const synonyms = {};
+
+const changeKeyIndex = function() {
+    if (keyIndex === '0') {
+        keyIndex = '1'
+    } else {
+        keyIndex = '0'
+    };
+};
+
 const wordReplacement = function (keyWord) {
+    changeKeyIndex();
     return $.ajax({
-        url: baseURL + keyWord + key,
+        url: baseURL + keyWord + key[keyIndex],
         method: "GET"
     })
 };
@@ -18,6 +29,7 @@ function mergeArrays(arrayOfArrays) {
 }
 
 const renderResponse = function( string ) {
+    cleanText = string.replace(/<\/?[^>]+(>|$)/g, "");
     $('.typing-indicator-li').remove();
     const msgHTML = `<li>
     <div class="message-block col s12 valign-wrapper">
@@ -25,7 +37,7 @@ const renderResponse = function( string ) {
             <p>${string}</p>
         </div>
         <div 
-        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${string}" data-size="large"> Tweet This!</a>
+        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="icons/twitterLogo.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${cleanText}" data-size="large"> Tweet This!</a>
         </div>
     </div>
   <li>`;
@@ -62,6 +74,7 @@ const listReplacement = function () {
                 }
             }
         });
+        console.log(synonyms);
         getRandWord(words, synonyms);
         newSentence = sentenceString.join(" ");
         renderResponse( newSentence );
@@ -70,24 +83,29 @@ const listReplacement = function () {
 
 const getRandWord = function(origArr, returnObj) {
     for (let i=0; i<origArr.length; i++) {
-        let wordType = '';
         const word = origArr[i].word;
-        let newWord = '';
-        console.log(word);
+        let newWord = word;
         if (origArr[i].isVerb === true) {
             const verbTense = origArr[i].tense
-            wordType = 'verbs';
-            do {
-                const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
-                let baseWord = returnObj[word][wordType][randIndex];
+            const verbSynonyms = returnObj[word].verbs;
+            let count = 0;
+            while (verbSynonyms.length > 0 && newWord === word || newWord === '' && count < verbSynonyms.length) {
+                count++;
+                const randIndex = Math.floor(Math.random()*verbSynonyms.length);
+                const baseWord = verbSynonyms[randIndex];
                 newWord = changeTense(word, verbTense, baseWord);
-            } while (newWord === '');
+            }
         } else {
-            wordType = 'adjectives';
-            const randIndex = Math.floor(Math.random()*returnObj[word][wordType].length);
-            newWord = returnObj[word][wordType][randIndex];
+            const adjSynonyms = returnObj[word].adjectives;
+            let count = 0;
+            while (adjSynonyms.length > 0 && newWord === word && count < adjSynonyms.length) {
+                count++;
+                const randIndex = Math.floor(Math.random()*adjSynonyms.length);
+                newWord = adjSynonyms[randIndex];
+            }
+
         };
-        wordReplace(word, newWord);
+        wordReplace(word, newWord, i);
     }
 };
 
@@ -104,14 +122,19 @@ const changeTense = function(origWord, verbTense, verb) {
         tempVerb = data.verbs().toPastTense();
         changedVerb = tempVerb.out("normal");
     } else {
-        tempVerb = data.verbs();
-        changedVerb = tempVerb.out("normal");
+        if (origWord.endsWith("s")) {
+            tempVerb = data.verbs().toPresentTense();
+            changedVerb = tempVerb.out("normal");
+        } else {
+            tempVerb = data.verbs();
+            changedVerb = tempVerb.out("normal");
+        }
     } 
     return changedVerb;
 };
 
-const wordReplace = function (oldWord, newWord) {
-    console.log(sentenceString);
+const wordReplace = function (oldWord, newWord, index) {
+    newWord = `<span id = ${index} class='replacedWord' data-old-word=${oldWord}>${newWord}</span>`;
     var index = sentenceString.findIndex(function (value) {
         return value.toLowerCase() === oldWord.toLowerCase();
     });
