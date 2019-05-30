@@ -1,10 +1,21 @@
-const key = `?key=6abb23cc-f20a-4a93-b5fe-cafee8b78d5b`;
+const key = [`?key=6abb23cc-f20a-4a93-b5fe-cafee8b78d5b` , `?key=9b4c0aa8-af73-492c-89ef-9edb3067b787`];
 const baseURL = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/';
+let keyIndex = '1'
 
 const synonyms = {};
+
+const changeKeyIndex = function() {
+    if (keyIndex === '0') {
+        keyIndex = '1'
+    } else {
+        keyIndex = '0'
+    };
+};
+
 const wordReplacement = function (keyWord) {
+    changeKeyIndex();
     return $.ajax({
-        url: baseURL + keyWord + key,
+        url: baseURL + keyWord + key[keyIndex],
         method: "GET"
     })
 };
@@ -26,7 +37,7 @@ const renderResponse = function( string ) {
             <p>${string}</p>
         </div>
         <div 
-        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="Twitter_Social_Icon_Rounded_Square_Color.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${cleanText}" data-size="large"> Tweet This!</a>
+        style="margin:0 5px" class="button valign-wrapper"> <img height="15" width="15" src="icons/twitterLogo.svg" alt="twitter icon"><a style="color:#1DA1F2; text-decoration:none; margin:0 5px;" target="_blank" href="https://twitter.com/intent/tweet?text=${cleanText}" data-size="large"> Tweet This!</a>
         </div>
     </div>
   <li>`;
@@ -43,6 +54,7 @@ const listReplacement = function () {
         const promise = wordReplacement(words[i].word);
         promises.push(promise);
     }
+    console.log("promises = ", promises);
     Promise.all(promises).then(function (wordResponses) {
         wordResponses.forEach(function (response, i) {
             if (!synonyms[words[i].word]) {
@@ -51,6 +63,7 @@ const listReplacement = function () {
                     adjectives: [],
                 }
             }
+            console.log('response = ', response);
             for (let j = 0; j < response.length; j++) {
                 if (response[j].fl === "verb") {
                     const flatSynonyms = mergeArrays(response[j].meta.syns);

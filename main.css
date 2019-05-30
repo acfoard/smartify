@@ -60,6 +60,14 @@ nav {
     height: 56px;
 }
 
+.shareLink {
+    width: 38px;    
+    padding: 0px;
+    height: 38px;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
 #conversationWindow {
     display: flex;
     height: 78vh;
@@ -154,9 +162,17 @@ nav {
 
 /* side nav */
 .sidenav{
-    top: 65px;
+    top: 57px;
     width: 250px;
  }
+
+ nav ul a:hover {
+    background-color: rgba(0,0,0,0.0) !important;
+}
+
+.replacedWord {
+    font-weight: bolder;
+}
 
  /*  Reponsive tweaks  */
 
@@ -177,8 +193,7 @@ nav {
     .sidenav-trigger {
         top: 0px;
     }
-}
-
-.replacedWord {
-    font-weight: bolder;
+    .desktopShare {
+        display:none;
+    }
 }
